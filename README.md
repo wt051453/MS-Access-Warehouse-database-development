@@ -29,7 +29,7 @@ We also need to keep track of our Employees including their home address, contac
 7)   One order item must be handled by one and only one employee
 8)   One employee may handle one or more order items
  
-Conversion to Relational Model
+### Conversion to Relational Model
  
 1.	Customer (CustomerID (Key), FirstName, LastName, Address, City, State, ZipCode, PhoneNumber, Email)
 2.	Orders (OrderID (Key), OrderBy, OrderDateTime, ShippingDetail, DeliveryDate, CustomerID (FK))
@@ -38,7 +38,7 @@ Conversion to Relational Model
 5.	OrderItems (DateReceived, ReceivedBy, HighPriority, TurnoverDate, TurnedoverTo, OrderId(FK)(Key), EmployeeID(FK)(Key), MaterialsID(FK)(Key))
  
  
-Normalization
+### Normalization
  
 Customer (CustomerID (Key), FirstName, LastName, Address, City, State, ZipCode, PhoneNumber, Email)
 Key: CustomerID
@@ -48,21 +48,21 @@ FD2: Zipcode -> City, State
 2NF because there is no partial-key dependencies
 3NF Not in 3NF due to transitive dependency: CustomerID -> Zipcode ;  Zipcode -> City, State. Solution is to split up relation resulting in a new relation:  ZipCodes(Zipcode(key), City, State). For the purposes of this project we elect to de-normalize ZipCodes to simplify the implementation.
  
- 
+<br/>
 Orders (OrderID (Key), OrderBy, OrderDateTime, ShippingDetail, DeliveryDate, CustomerID (FK))
 Key: OrderID
 FD1: OrderID -> OrderBy, OrderDateTime, ShippingDetail, DeliveryDate, CustomerID
 1NF because it meets the 6 criteria
 2NF because there is no partial-key dependencies
 3NF because there is no transitive dependencies
- 
+<br/>
 Materials (MaterialID (key), Description, WeightInLB, SizeInFT, Hazmat)
 Key: MaterialsID
 FD1: MaterialsID -> Description, WeightInLB, SizeInFT, Hazmat
 1NF because it meets the 6 criteria
 2NF because there is no partial-key dependencies
 3NF because there is no transitive dependencies
- 
+<br/>
 Employee (EmployeeID (key), FirstName, LastName, Address, City, State, ZipCode, PhoneNumber, Email, Certification)
 Key: EmployeeID
 FD1: EmployeeID -> FirstName, LastName, Address, City, State, ZipCode, PhoneNumber, Email, Certification
@@ -70,14 +70,14 @@ FD2: ZipCode-> City, State
 1NF because it meets the 6 criteria
 2NF because there is no partial-key dependencies
 3NF Not in 3NF due to transitive dependency: EmployeeID -> Zipcode ;  Zipcode -> City, State. Solution is to split up relation resulting in a new relation:  ZipCodes(Zipcode(key), City, State). For the purposes of this project we elect to de-normalize ZipCodes to simplify the implementation.
- 
+<br/>
 OrderItems (DateReceived, ReceivedBy, HighPriority, TurnoverDate, TurnedoverTo, OrderID(FK)(Key), EmployeeID(FK)(Key), MaterialsID(FK)(Key))
 Key: OrderID, EmployeeID, MaterialsID
 FD1: OrderID, EmployeeID, MaterialsID  -> DateReceived, ReceivedBy, HighPriority, TurnoverDate, TurnedoverTo
 1NF because it meets the 6 criteria
 2NF because there is no partial-key dependencies
 3NF because there is no transitive dependencies
- 
+<br/> 
 Final set of relations: Customer, Orders, Materials, Employee, OrderItems
  
 Creating and Altering Tables
