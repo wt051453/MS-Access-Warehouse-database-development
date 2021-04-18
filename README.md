@@ -6,63 +6,19 @@ Customers make orders in the company’s supply system. When orders arrived, the
 We also need to keep track of our Employees including their home address, contact information and rate of pay. We need to keep track of each Customer’s contact information. <br/>
 
 ### Initial List of Entities
-br/>
-Customers
-CustomerID
-FirstName
-LastName
-Address
-City
-State
-ZipCode
-PhoneNumber
-Email
-<br/>
-Employees
-EmployeeID
-FirstName
-LastName
-Address
-City
-State
-ZipCode
-PhoneNumber
-Email
-Certification
-<br/> 
-Materials
-MaterialID
-Description
-WeightInLB
-SizeInFT
-Hazmat
-<br/>
-OrderItems
-DateReceived
-ReceivedBy
-TurnoverDate
-TurnedoverTo
-HighPriority
-Hazmat
-<br/>
-Orders
-OrderID
-OrderBy
-OrderDateTime
-ShippingDetail
-DeliveryDate
-<br/>
+
+
+![image](https://user-images.githubusercontent.com/27581761/115129932-a5d60e80-9fb8-11eb-8710-be62c775becd.png)
+
  
 ### ER Diagram
  
-  
+![image](https://user-images.githubusercontent.com/27581761/115129987-580dd600-9fb9-11eb-9c14-3cc61ca9bb36.png)
+   
  
  
- 
- 
-![image](https://user-images.githubusercontent.com/27581761/115129932-a5d60e80-9fb8-11eb-8710-be62c775becd.png)
 
-Relationship Sentences
+### Relationship Sentences
  
 1)   One customer may place one or more orders
 2)   One order must be placed by one and only one customer
