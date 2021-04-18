@@ -228,31 +228,25 @@ End Sub <br/>
 
 ![image](https://user-images.githubusercontent.com/27581761/115130135-e20a6e80-9fba-11eb-953d-7965c0ef66ff.png)
 
-![image](https://user-images.githubusercontent.com/27581761/115130138-e6368c00-9fba-11eb-9825-ab5a0f87e1dc.png)
-
-![image](https://user-images.githubusercontent.com/27581761/115130140-eafb4000-9fba-11eb-9bb1-f7879382b8f2.png)
-
-![image](https://user-images.githubusercontent.com/27581761/115130142-ef275d80-9fba-11eb-9eb4-95fcdabf1f50.png)
-
-
-
-### Queries/Reporting
-
-HazmatQualifiedEmployee query/report
+### HazmatQualifiedEmployee query/report
 
 This is the query to lookup the employees who are Hazmat qualified to handle Hazmat orders. The SQL is the following: <br/>
 SELECT Employee.EmployeeID, Employee.FirstName, Employee.LastName, Employee.Certification <br/>
 FROM Employee <br/>
 WHERE (((Employee.[Certification]) Like '*Hazmat*')); <br/>
- 
-TotalOrdersByCustomer query/report
+
+![image](https://user-images.githubusercontent.com/27581761/115130138-e6368c00-9fba-11eb-9825-ab5a0f87e1dc.png)
+
+### TotalOrdersByCustomer query/report
 
 This is the query to lookup the total orders by each customer. The SQL is the following: <br/>
 SELECT o1.OrderID, o1.EmployeeID, o1.MaterialID, o2.OrderDateTime <br/>
 FROM OrderItems AS o1 INNER JOIN Orders AS o2 ON o1.OrderID = o2.OrderID <br/>
 WHERE o1.DateReceived IS NULL; <br/>
- 
-OutstandingOrders query/report
+
+![image](https://user-images.githubusercontent.com/27581761/115130140-eafb4000-9fba-11eb-9bb1-f7879382b8f2.png)
+
+### OutstandingOrders query/report
 
 This is the query to lookup the outstanding orders that have not been received by the warehouse for tracking purpose. The SQL is the following: <br/>
 SELECT OrderID, EmployeeID, MaterialID, DateReceived, ReceivedBy, HighPriority <br/>
@@ -260,12 +254,15 @@ FROM OrderItems <br/>
 WHERE HighPriority = 'Yes' AND TurnoverDate IS NULL; <br/>
 
 
-OutstandingTurover query/report
+![image](https://user-images.githubusercontent.com/27581761/115130142-ef275d80-9fba-11eb-9eb4-95fcdabf1f50.png)
+
+### OutstandingTurover query/report
 
 This is the query to lookup the orders that have been received by the warehouse but have not turned over to the customers. The SQL is the following: <br/>
 SELECT COUNT(c.CustomerID) AS Total_Orders, c.FirstName, c.LastName, c.PhoneNumber, c.Address, c.City, c.State, c.Email <br/>
 FROM Customer AS c INNER JOIN Orders AS o ON o.CustomerID = c.CustomerID <br/>
 GROUP BY c.FirstName, c.LastName, c.PhoneNumber, c.Address, c.City, c.State, c.Email; <br/>
+
 
 ### Conclusion
 
