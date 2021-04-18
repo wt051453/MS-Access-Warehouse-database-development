@@ -179,17 +179,52 @@ ALTER TABLE OrderItems <br/>
 
 ![image](https://user-images.githubusercontent.com/27581761/115130117-c30bdc80-9fba-11eb-9bcc-ec0e9194f69d.png)
 
+### CustomerDataEntry
+-	This is a data entry form for creating new customers
+-	The customerID field is formatted so that the 1st items is always a letter and the next 3 items will always be numbers (by changing input mark to L000)
+-	 The first and last name field ensure that the first letter of the name will always be capitalized (please refer to VBA code image)
+-	The state filed features a combo box, but we are not limited to the 3 choices shown  
+
+
 ![image](https://user-images.githubusercontent.com/27581761/115130121-c69f6380-9fba-11eb-8869-f2fe1e1063a1.png)
+
 
 ![image](https://user-images.githubusercontent.com/27581761/115130122-cbfcae00-9fba-11eb-91d3-dd147ecce80b.png)
 
+### EmployeeDataEntry
+-	This form features the same traits as the CustomerDataEntry form 
+
 ![image](https://user-images.githubusercontent.com/27581761/115130124-d028cb80-9fba-11eb-8918-a290ad87b058.png)
+
+### MaterialsDataEntry
+-	The materialID field is formatted so that the 1st items is always a letter and the next 3 items will always be numbers (by changing input mark to L000)
+-	The hazmat field features a y/n selection combo box
 
 ![image](https://user-images.githubusercontent.com/27581761/115130128-d4ed7f80-9fba-11eb-9764-ac7a5b8c0cd4.png)
 
+### OrdersDataEntry
+-	The orderID field is formatted so that the 1st items is always a letter and the next 3 items will always be numbers (by changing input mark to L000)
+-	The delivery date is always equal to or after the order date time
+-	We have the ability to look up customer information by selecting the down arrow in customer ID
+
 ![image](https://user-images.githubusercontent.com/27581761/115130129-d9199d00-9fba-11eb-81a5-197c2ff16539.png)
 
+### OrderItemsDataEntry
+-	This form features the similar traits to the OrdersDataEntry form
+-	The receive by field will always default to a hazmat certified employee if the incoming item has the hazmat property (code shown below)
+
+Private Sub ReceivedBy_AfterUpdate() <br/>
+If [MaterialID] = "M301" Then <br/>
+[ReceivedBy] = "Levi Floyd" <br/>
+End If <br/>
+End Sub <br/>
+
 ![image](https://user-images.githubusercontent.com/27581761/115130132-dd45ba80-9fba-11eb-97e1-08056e9c615b.png)
+
+### OrdersMasterForm
+-	This is the orders/detail form with orders as the master and order items as detail. This enables one to see multiple forms simultaneously 
+-	The customerID field features a dropdown that enables you to see customer first and last names 
+
 
 ![image](https://user-images.githubusercontent.com/27581761/115130135-e20a6e80-9fba-11eb-953d-7965c0ef66ff.png)
 
@@ -200,37 +235,6 @@ ALTER TABLE OrderItems <br/>
 ![image](https://user-images.githubusercontent.com/27581761/115130142-ef275d80-9fba-11eb-9eb4-95fcdabf1f50.png)
 
 
-*	CustomerDataEntry
--	This is a data entry form for creating new customers
--	The customerID field is formatted so that the 1st items is always a letter and the next 3 items will always be numbers (by changing input mark to L000)
--	 The first and last name field ensure that the first letter of the name will always be capitalized (please refer to VBA code image)
--	The state filed features a combo box, but we are not limited to the 3 choices shown  
-
-●	EmployeeDataEntry
-○	This form features the same traits as the CustomerDataEntry form 
-
-●	MaterialsDataEntry
-○	The materialID field is formatted so that the 1st items is always a letter and the next 3 items will always be numbers (by changing input mark to L000)
-○	The hazmat field features a y/n selection combo box
-
-●	OrdersDataEntry
-○	The orderID field is formatted so that the 1st items is always a letter and the next 3 items will always be numbers (by changing input mark to L000)
-○	The delivery date is always equal to or after the order date time
-○	We have the ability to look up customer information by selecting the down arrow in customer ID
-
-●	OrderItemsDataEntry
-○	This form features the similar traits to the OrdersDataEntry form
-○	The receive by field will always default to a hazmat certified employee if the incoming item has the hazmat property (code shown below)
-
-Private Sub ReceivedBy_AfterUpdate()
-If [MaterialID] = "M301" Then
-[ReceivedBy] = "Levi Floyd"
-End If
-End Sub
-
-●	OrdersMasterForm
-○	This is the orders/detail form with orders as the master and order items as detail. This enables one to see multiple forms simultaneously 
-○	The customerID field features a dropdown that enables you to see customer first and last names 
 
 ### Queries/Reporting
 
