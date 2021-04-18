@@ -1,12 +1,12 @@
 ## Warehouse-database-development
 
 ### Narrative Description and Informational Needs
-We are a small warehouse that provides receiving and temporary storage for the company’s internal customers, different operational units. We have been using spreadsheets and shipment receipts to keep track of customers, materials received and turned over. We would like to replace this manual method of tracking with a database.
-Customers make orders in the company’s supply system. When orders arrived, the warehouse personnel would complete the orders in the same supply system with receipt date, and turn them over to the customers upon notifying. We need to keep track of the packages received with receipt date, quantity received and received by. While most packages are standard supplies, there are times that we would receive HAZMAT and high priority items which need to be stored separately with separate logs.
-We also need to keep track of our Employees including their home address, contact information and rate of pay. We need to keep track of each Customer’s contact information.
-![image](https://user-images.githubusercontent.com/27581761/115129924-96ef5c00-9fb8-11eb-8306-ab4f0791e35c.png)
+We are a small warehouse that provides receiving and temporary storage for the company’s internal customers, different operational units. We have been using spreadsheets and shipment receipts to keep track of customers, materials received and turned over. We would like to replace this manual method of tracking with a database.<br/>
+Customers make orders in the company’s supply system. When orders arrived, the warehouse personnel would complete the orders in the same supply system with receipt date, and turn them over to the customers upon notifying. We need to keep track of the packages received with receipt date, quantity received and received by. While most packages are standard supplies, there are times that we would receive HAZMAT and high priority items which need to be stored separately with separate logs. <br/>
+We also need to keep track of our Employees including their home address, contact information and rate of pay. We need to keep track of each Customer’s contact information. <br/>
 
-Initial List of Entities
+### Initial List of Entities
+br/>
 Customers
 CustomerID
 FirstName
@@ -17,7 +17,7 @@ State
 ZipCode
 PhoneNumber
 Email
- 
+<br/>
 Employees
 EmployeeID
 FirstName
@@ -29,14 +29,14 @@ ZipCode
 PhoneNumber
 Email
 Certification
- 
+<br/> 
 Materials
 MaterialID
 Description
 WeightInLB
 SizeInFT
 Hazmat
- 
+<br/>
 OrderItems
 DateReceived
 ReceivedBy
@@ -44,16 +44,16 @@ TurnoverDate
 TurnedoverTo
 HighPriority
 Hazmat
- 
+<br/>
 Orders
 OrderID
 OrderBy
 OrderDateTime
 ShippingDetail
 DeliveryDate
+<br/>
  
- 
-ER Diagram
+### ER Diagram
  
   
  
