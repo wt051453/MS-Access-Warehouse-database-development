@@ -4,12 +4,6 @@
 We are a small warehouse that provides receiving and temporary storage for the company’s internal customers, different operational units. We have been using spreadsheets and shipment receipts to keep track of customers, materials received and turned over. We would like to replace this manual method of tracking with a database.<br/>
 Customers make orders in the company’s supply system. When orders arrived, the warehouse personnel would complete the orders in the same supply system with receipt date, and turn them over to the customers upon notifying. We need to keep track of the packages received with receipt date, quantity received and received by. While most packages are standard supplies, there are times that we would receive HAZMAT and high priority items which need to be stored separately with separate logs. <br/>
 We also need to keep track of our Employees including their home address, contact information and rate of pay. We need to keep track of each Customer’s contact information. <br/>
-
-### Initial List of Entities
-
-
-![image](https://user-images.githubusercontent.com/27581761/115129932-a5d60e80-9fb8-11eb-8710-be62c775becd.png)
-
  
 ### ER Diagram
  
@@ -206,11 +200,11 @@ ALTER TABLE OrderItems <br/>
 ![image](https://user-images.githubusercontent.com/27581761/115130142-ef275d80-9fba-11eb-9eb4-95fcdabf1f50.png)
 
 
-●	CustomerDataEntry
-○	This is a data entry form for creating new customers
-○	The customerID field is formatted so that the 1st items is always a letter and the next 3 items will always be numbers (by changing input mark to L000)
-○	 The first and last name field ensure that the first letter of the name will always be capitalized (please refer to VBA code image)
-○	The state filed features a combo box, but we are not limited to the 3 choices shown  
+*	CustomerDataEntry
+-	This is a data entry form for creating new customers
+-	The customerID field is formatted so that the 1st items is always a letter and the next 3 items will always be numbers (by changing input mark to L000)
+-	 The first and last name field ensure that the first letter of the name will always be capitalized (please refer to VBA code image)
+-	The state filed features a combo box, but we are not limited to the 3 choices shown  
 
 ●	EmployeeDataEntry
 ○	This form features the same traits as the CustomerDataEntry form 
