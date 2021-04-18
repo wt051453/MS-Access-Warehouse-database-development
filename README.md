@@ -86,252 +86,124 @@ CREATE TABLE Customer <br/>
 	CustomerID   VARCHAR(10) NOT NULL, <br/>
 	FirstName	VARCHAR(35), <br/>
 	LastName 	VARCHAR(35), <br/>
-	PhoneNumber  VARCHAR(15),
-	Address  	VARCHAR(35),
-	City         VARCHAR(36),
-	State        VARCHAR(4),
-	ZipCode  	VARCHAR(12),
-	Email    	VARCHAR(50),
-	CONSTRAINT pk_customer
-      	PRIMARY KEY (CustomerID)
-)
+	PhoneNumber  VARCHAR(15), <br/>
+	Address  	VARCHAR(35), <br/>
+	City         VARCHAR(36), <br/>
+	State        VARCHAR(4), <br/>
+	ZipCode  	VARCHAR(12), <br/>
+	Email    	VARCHAR(50), <br/>
+	CONSTRAINT pk_customer <br/>
+      	PRIMARY KEY (CustomerID) <br/>
+) <br/>
  
  
-CREATE TABLE Orders
-(
-	OrderID   	 VARCHAR(10) NOT NULL,
-	OrderBy  	  VARCHAR(70),
-	OrderDateTime  DATE,
-	ShippingDetail VARCHAR(70),
-	DeliveryDate   DATE,
-	CustomerID 	VARCHAR(10) NOT NULL,
-	CONSTRAINT pk_orders
-      	PRIMARY KEY (OrderID)
-)
+CREATE TABLE Orders <br/>
+( <br/>
+	OrderID   	 VARCHAR(10) NOT NULL, <br/>
+	OrderBy  	  VARCHAR(70), <br/>
+	OrderDateTime  DATE, <br/>
+	ShippingDetail VARCHAR(70), <br/>
+	DeliveryDate   DATE, <br/>
+	CustomerID 	VARCHAR(10) NOT NULL, <br/>
+	CONSTRAINT pk_orders <br/>
+      	PRIMARY KEY (OrderID) <br/>
+) <br/>
  
-CREATE TABLE Materials
-(
-	MaterialID     	VARCHAR(10) NOT NULL,
-    Description   	 VARCHAR(70),
-	WeightInLB  	   NUMBER,
-    SizeInFT  	     NUMBER,
-    Hazmat     	    VARCHAR(4),
-	CONSTRAINT pk_materials
-    	PRIMARY KEY (MaterialID)
-)
+CREATE TABLE Materials <br/>
+( <br/>
+	MaterialID     	VARCHAR(10) NOT NULL, <br/>
+    Description   	 VARCHAR(70), <br/>
+	WeightInLB  	   NUMBER, <br/>
+    SizeInFT  	     NUMBER, <br/>
+    Hazmat     	    VARCHAR(4), <br/>
+	CONSTRAINT pk_materials <br/>
+    	PRIMARY KEY (MaterialID) <br/>
+) <br/>
  
-CREATE TABLE Employee
-(
-	EmployeeID 	VARCHAR(10) NOT NULL,
-	FirstName  	VARCHAR(35),
-    LastName   	VARCHAR(35),
-    Address    	VARCHAR(45),
-	City           VARCHAR(36),
-	State          VARCHAR(4),
-	ZipCode    	VARCHAR(12),
-    PhoneNumber    VARCHAR(15),
-	Email      	VARCHAR(50),
-	Certification  VARCHAR(100),
- 	CONSTRAINT pk_employee
-   	PRIMARY KEY (EmployeeID)
-)
- 
- 
-CREATE TABLE OrderItems
-(
-    OrderID    	VARCHAR(10) NOT NULL,
-	EmployeeID 	VARCHAR(10) NOT NULL,
-	MaterialID 	VARCHAR(10) NOT NULL,
-	DateReceived   DATE,
-    ReceivedBy 	VARCHAR(70),
-    HighPriority   VARCHAR(4),
-    TurnoverDate   DATE,
-	TurnedoverTo   VARCHAR(70),
-	CONSTRAINT pk_orderitems
-        PRIMARY KEY (OrderID, EmployeeID, MaterialID)
-)
+CREATE TABLE Employee <br/>
+( <br/>
+	EmployeeID 	VARCHAR(10) NOT NULL, <br/>
+	FirstName  	VARCHAR(35), <br/>
+    LastName   	VARCHAR(35), <br/>
+    Address    	VARCHAR(45), <br/>
+	City           VARCHAR(36), <br/>
+	State          VARCHAR(4), <br/>
+	ZipCode    	VARCHAR(12), <br/>
+    PhoneNumber    VARCHAR(15), <br/>
+	Email      	VARCHAR(50), <br/>
+	Certification  VARCHAR(100), <br/>
+ 	CONSTRAINT pk_employee <br/>
+   	PRIMARY KEY (EmployeeID) <br/>
+) <br/>
  
  
-ALTER TABLE Orders
-   ADD CONSTRAINT fk_orders_customer
- 	FOREIGN KEY (CustomerID)
-        REFERENCES Customer (CustomerID)
+CREATE TABLE OrderItems <br/>
+( <br/>
+    OrderID    	VARCHAR(10) NOT NULL, <br/>
+	EmployeeID 	VARCHAR(10) NOT NULL, <br/>
+	MaterialID 	VARCHAR(10) NOT NULL, <br/>
+	DateReceived   DATE, <br/>
+    ReceivedBy 	VARCHAR(70), <br/>
+    HighPriority   VARCHAR(4), <br/>
+    TurnoverDate   DATE, <br/>
+	TurnedoverTo   VARCHAR(70), <br/>
+	CONSTRAINT pk_orderitems <br/>
+        PRIMARY KEY (OrderID, EmployeeID, MaterialID) <br/>
+) <br/>
  
-ALTER TABLE OrderItems
-   ADD CONSTRAINT fk_orderitems_orders
- 	FOREIGN KEY (OrderID)
-        REFERENCES Orders (OrderID)
  
-ALTER TABLE OrderItems
-   ADD CONSTRAINT fk_orderitems_employee
- 	FOREIGN KEY (EmployeeID)
-        REFERENCES Employee (EmployeeID)
+ALTER TABLE Orders <br/>
+   ADD CONSTRAINT fk_orders_customer <br/>
+ 	FOREIGN KEY (CustomerID) <br/>
+        REFERENCES Customer (CustomerID) <br/>
  
-ALTER TABLE OrderItems
-   ADD CONSTRAINT fk_orderitems_materials
- 	FOREIGN KEY (MaterialID)
-        REFERENCES Materials (MaterialID)
+ALTER TABLE OrderItems <br/>
+   ADD CONSTRAINT fk_orderitems_orders <br/>
+ 	FOREIGN KEY (OrderID) <br/>
+        REFERENCES Orders (OrderID) <br/>
+ 
+ALTER TABLE OrderItems <br/>
+   ADD CONSTRAINT fk_orderitems_employee <br/>
+ 	FOREIGN KEY (EmployeeID) <br/>
+        REFERENCES Employee (EmployeeID) <br/>
+ 
+ALTER TABLE OrderItems <br/>
+   ADD CONSTRAINT fk_orderitems_materials <br/>
+ 	FOREIGN KEY (MaterialID) <br/>
+        REFERENCES Materials (MaterialID) <br/>
     
-Relationships Map
+### Relationships Map
  
  
+![image](https://user-images.githubusercontent.com/27581761/115130110-b9827480-9fba-11eb-8dea-6b1ced0d067c.png)
 
 
 
 
 
-Example printouts 
+### Example printouts 
 
+![image](https://user-images.githubusercontent.com/27581761/115130117-c30bdc80-9fba-11eb-9bcc-ec0e9194f69d.png)
 
+![image](https://user-images.githubusercontent.com/27581761/115130121-c69f6380-9fba-11eb-8869-f2fe1e1063a1.png)
 
+![image](https://user-images.githubusercontent.com/27581761/115130122-cbfcae00-9fba-11eb-91d3-dd147ecce80b.png)
 
+![image](https://user-images.githubusercontent.com/27581761/115130124-d028cb80-9fba-11eb-8918-a290ad87b058.png)
 
+![image](https://user-images.githubusercontent.com/27581761/115130128-d4ed7f80-9fba-11eb-9764-ac7a5b8c0cd4.png)
 
+![image](https://user-images.githubusercontent.com/27581761/115130129-d9199d00-9fba-11eb-81a5-197c2ff16539.png)
 
+![image](https://user-images.githubusercontent.com/27581761/115130132-dd45ba80-9fba-11eb-97e1-08056e9c615b.png)
 
+![image](https://user-images.githubusercontent.com/27581761/115130135-e20a6e80-9fba-11eb-953d-7965c0ef66ff.png)
 
+![image](https://user-images.githubusercontent.com/27581761/115130138-e6368c00-9fba-11eb-9825-ab5a0f87e1dc.png)
 
+![image](https://user-images.githubusercontent.com/27581761/115130140-eafb4000-9fba-11eb-9bb1-f7879382b8f2.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![image](https://user-images.githubusercontent.com/27581761/115130142-ef275d80-9fba-11eb-9eb4-95fcdabf1f50.png)
 
 
 ●	CustomerDataEntry
@@ -339,54 +211,68 @@ Example printouts
 ○	The customerID field is formatted so that the 1st items is always a letter and the next 3 items will always be numbers (by changing input mark to L000)
 ○	 The first and last name field ensure that the first letter of the name will always be capitalized (please refer to VBA code image)
 ○	The state filed features a combo box, but we are not limited to the 3 choices shown  
+
 ●	EmployeeDataEntry
 ○	This form features the same traits as the CustomerDataEntry form 
+
 ●	MaterialsDataEntry
 ○	The materialID field is formatted so that the 1st items is always a letter and the next 3 items will always be numbers (by changing input mark to L000)
 ○	The hazmat field features a y/n selection combo box
+
 ●	OrdersDataEntry
 ○	The orderID field is formatted so that the 1st items is always a letter and the next 3 items will always be numbers (by changing input mark to L000)
 ○	The delivery date is always equal to or after the order date time
 ○	We have the ability to look up customer information by selecting the down arrow in customer ID
+
 ●	OrderItemsDataEntry
 ○	This form features the similar traits to the OrdersDataEntry form
 ○	The receive by field will always default to a hazmat certified employee if the incoming item has the hazmat property (code shown below)
+
 Private Sub ReceivedBy_AfterUpdate()
 If [MaterialID] = "M301" Then
 [ReceivedBy] = "Levi Floyd"
 End If
 End Sub
+
 ●	OrdersMasterForm
 ○	This is the orders/detail form with orders as the master and order items as detail. This enables one to see multiple forms simultaneously 
 ○	The customerID field features a dropdown that enables you to see customer first and last names 
-Queries/Reporting
+
+### Queries/Reporting
+
 HazmatQualifiedEmployee query/report
-This is the query to lookup the employees who are Hazmat qualified to handle Hazmat orders. The SQL is the following:
-SELECT Employee.EmployeeID, Employee.FirstName, Employee.LastName, Employee.Certification
-FROM Employee
-WHERE (((Employee.[Certification]) Like '*Hazmat*'));
+
+This is the query to lookup the employees who are Hazmat qualified to handle Hazmat orders. The SQL is the following: <br/>
+SELECT Employee.EmployeeID, Employee.FirstName, Employee.LastName, Employee.Certification <br/>
+FROM Employee <br/>
+WHERE (((Employee.[Certification]) Like '*Hazmat*')); <br/>
  
 TotalOrdersByCustomer query/report
-This is the query to lookup the total orders by each customer. The SQL is the following:
-SELECT o1.OrderID, o1.EmployeeID, o1.MaterialID, o2.OrderDateTime
-FROM OrderItems AS o1 INNER JOIN Orders AS o2 ON o1.OrderID = o2.OrderID
-WHERE o1.DateReceived IS NULL;
+
+This is the query to lookup the total orders by each customer. The SQL is the following: <br/>
+SELECT o1.OrderID, o1.EmployeeID, o1.MaterialID, o2.OrderDateTime <br/>
+FROM OrderItems AS o1 INNER JOIN Orders AS o2 ON o1.OrderID = o2.OrderID <br/>
+WHERE o1.DateReceived IS NULL; <br/>
  
 OutstandingOrders query/report
-This is the query to lookup the outstanding orders that have not been received by the warehouse for tracking purpose. The SQL is the following:
-SELECT OrderID, EmployeeID, MaterialID, DateReceived, ReceivedBy, HighPriority
-FROM OrderItems
-WHERE HighPriority = 'Yes' AND TurnoverDate IS NULL;
+
+This is the query to lookup the outstanding orders that have not been received by the warehouse for tracking purpose. The SQL is the following: <br/>
+SELECT OrderID, EmployeeID, MaterialID, DateReceived, ReceivedBy, HighPriority <br/>
+FROM OrderItems <br/>
+WHERE HighPriority = 'Yes' AND TurnoverDate IS NULL; <br/>
 
 
 OutstandingTurover query/report
-This is the query to lookup the orders that have been received by the warehouse but have not turned over to the customers. The SQL is the following:
-SELECT COUNT(c.CustomerID) AS Total_Orders, c.FirstName, c.LastName, c.PhoneNumber, c.Address, c.City, c.State, c.Email
-FROM Customer AS c INNER JOIN Orders AS o ON o.CustomerID = c.CustomerID
-GROUP BY c.FirstName, c.LastName, c.PhoneNumber, c.Address, c.City, c.State, c.Email;
 
-Conclusion
-	This project was an eye-opening experience for all of us, it brought us from start to finish in the creation of a relation database. There were many challenges along the way but overall, it was a great learning experience. We thought that the creation of the conceptual model of the database was the most challenging aspect of the project, as at the time we did not grasp the concepts as fully as we do now. We feel that one of the most important skills that we learned was how to work with access, it’s a skill that we will bring with us into whatever field we will/are working in. 
+This is the query to lookup the orders that have been received by the warehouse but have not turned over to the customers. The SQL is the following: <br/>
+SELECT COUNT(c.CustomerID) AS Total_Orders, c.FirstName, c.LastName, c.PhoneNumber, c.Address, c.City, c.State, c.Email <br/>
+FROM Customer AS c INNER JOIN Orders AS o ON o.CustomerID = c.CustomerID <br/>
+GROUP BY c.FirstName, c.LastName, c.PhoneNumber, c.Address, c.City, c.State, c.Email; <br/>
+
+### Conclusion
+
+This project was an eye-opening experience for all of us, it brought us from start to finish in the creation of a relation database. There were many challenges along the way but overall, it was a great learning experience. We thought that the creation of the conceptual model of the database was the most challenging aspect of the project, as at the time we did not grasp the concepts as fully as we do now. We feel that one of the most important skills that we learned was how to work with access, it’s a skill that we will bring with us into whatever field we will/are working in. 
 Overall, we found that the natural progression of the project was very rewarding, completing one step at a time as we learned how to perform the necessary tasks through the lectures and tutorials provided. 
-![image](https://user-images.githubusercontent.com/27581761/115129941-bc7c6580-9fb8-11eb-98e4-c81bcd4db1d1.png)
+
+
 
